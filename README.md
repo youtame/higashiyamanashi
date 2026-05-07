@@ -9,8 +9,8 @@
 
 <p style="display: inline">
     <a href="https://www.docker.com/" target="_blank"><img src="https://img.shields.io/badge/-Docker-1488C6.svg?logo=docker&style=for-the-badge"></a>
-    <a href="https://vuepress.vuejs.org/" target="_blanck"><img src="https://img.shields.io/badge/-vuepress-009200.svg?logo=vue.js&style=for-the-badge"></a>
-    <a href="https://vuepress.vuejs.org/" target="_blanck"><img src="https://img.shields.io/badge/-typescript-0148a6.svg?logo=typescript&style=for-the-badge"></a>
+    <a href="https://vuejs.org//" target="_blanck"><img src="https://img.shields.io/badge/-vue.js-009200.svg?logo=vue.js&style=for-the-badge"></a>
+    <a href="https://www.typescriptlang.org/" target="_blanck"><img src="https://img.shields.io/badge/-typescript-0148a6.svg?logo=typescript&style=for-the-badge"></a>
 </p>
 
 ![Logo](app/src/assets/logo.png)

@@ -235,7 +235,9 @@ const error = ref(false);
 
 onMounted(async () => {
     try {
-        const res = await fetch("/himagin/information/himagin-info.json");
+        const baseUrl = import.meta.env.BASE_URL;
+        const res = await fetch(`${baseUrl}information/himagin-info.json`);
+
         if (!res.ok) throw new Error("fetch failed");
         notices.value = await res.json();
     } catch (e) {
