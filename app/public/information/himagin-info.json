@@ -1,0 +1,16 @@
+[
+    {
+        "id": 202605060000,
+        "title": "Site Completion Notice",
+        "information": "The website has been successfully completed and is now fully available. All features and services are operational. We appreciate your support and hope you enjoy using the site.",
+        "information_detail": "This website has completed its development and deployment process. All systems are now stable and accessible. The service is ready for use, and no further maintenance-related restrictions are currently in place. We will continue to monitor the system and provide updates if necessary.",
+        "info_date": "2026-05-06-00:00"
+    },
+    {
+        "id": 202605061500,
+        "title": "Python Support Now Available",
+        "information": "We are pleased to announce that Python code is now supported on our service. Users can now write, run, and integrate Python-based functionality within the platform.",
+        "information_detail": "Python support has been newly added to enhance the flexibility and capability of the service. This update allows users to execute Python code for various purposes such as data processing, automation, and system integration. We will continue to improve functionality and expand supported features in future updates.",
+        "info_date": "2026-05-06-15:00"
+    }
+]
