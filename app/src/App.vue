@@ -1,52 +1,3 @@
-<script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from "vue";
-import { useTheme, useDisplay } from "vuetify";
-
-import logo from "@/assets/logo.png";
-
-const drawer = ref(false);
-const showFirstNotice = ref(false);
-const isHovering = ref(false);
-const isScrolled = ref(false);
-
-const theme = useTheme();
-const { smAndDown } = useDisplay();
-
-const isExpanded = computed(() => {
-    return smAndDown.value ? true : isHovering.value;
-});
-
-const headericon = computed(() => ({
-    name: "",
-    icon: logo,
-}));
-
-const handleScroll = () => {
-    isScrolled.value = window.scrollY > 0;
-};
-
-function toggleTheme() {
-    theme.global.name.value = theme.global.current.value.dark
-        ? "light"
-        : "dark";
-}
-
-onMounted(() => {
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    theme.global.name.value = mediaQuery.matches ? "dark" : "light";
-
-    const seen = localStorage.getItem("retration_first_notice");
-    if (!seen) {
-        showFirstNotice.value = true;
-    }
-    window.addEventListener("scroll", handleScroll);
-});
-
-onUnmounted(() => {
-    window.removeEventListener("scroll", handleScroll);
-});
-</script>
-
 <template>
     <v-app>
         <v-app-bar
@@ -75,6 +26,19 @@ onUnmounted(() => {
                 </v-app-bar-title>
 
                 <v-spacer></v-spacer>
+
+                <v-btn
+                    v-if="isNotHome"
+                    icon
+                    variant="text"
+                    @click="$router.push('/')"
+                    class="mr-1 d-none d-md-flex"
+                >
+                    <v-icon>mdi-home</v-icon>
+                    <v-tooltip activator="parent" location="bottom"
+                        >Home</v-tooltip
+                    >
+                </v-btn>
 
                 <div class="d-none d-md-flex align-center">
                     <v-btn icon @click="toggleTheme" variant="text">
@@ -119,6 +83,17 @@ onUnmounted(() => {
         >
             <v-divider></v-divider>
             <v-list nav>
+                <v-list-item v-if="isNotHome" link to="/">
+                    <template v-slot:prepend>
+                        <v-icon icon="mdi-home"></v-icon>
+                    </template>
+                    <v-list-item-title class="font-weight-bold"
+                        >Home</v-list-item-title
+                    >
+                </v-list-item>
+
+                <v-divider v-if="isNotHome" class="my-2"></v-divider>
+
                 <v-list-item>
                     <template v-slot:prepend>
                         <v-icon
@@ -159,6 +134,7 @@ onUnmounted(() => {
                         >GitHub</v-list-item-title
                     >
                 </v-list-item>
+
                 <v-divider class="my-2"></v-divider>
             </v-list>
         </v-navigation-drawer>
@@ -174,6 +150,58 @@ onUnmounted(() => {
         </v-footer>
     </v-app>
 </template>
+<script setup lang="ts">
+import { ref, computed, onMounted, onUnmounted } from "vue";
+import { useRoute } from "vue-router";
+import { useTheme, useDisplay } from "vuetify";
+
+import logo from "@/assets/logo.png";
+
+const route = useRoute();
+const isNotHome = computed(() => route.path !== "/");
+
+const drawer = ref(false);
+const showFirstNotice = ref(false);
+const isHovering = ref(false);
+const isScrolled = ref(false);
+
+const theme = useTheme();
+const { smAndDown } = useDisplay();
+
+const isExpanded = computed(() => {
+    return smAndDown.value ? true : isHovering.value;
+});
+
+const headericon = computed(() => ({
+    name: "",
+    icon: logo,
+}));
+
+const handleScroll = () => {
+    isScrolled.value = window.scrollY > 0;
+};
+
+function toggleTheme() {
+    theme.global.name.value = theme.global.current.value.dark
+        ? "light"
+        : "dark";
+}
+
+onMounted(() => {
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    theme.global.name.value = mediaQuery.matches ? "dark" : "light";
+
+    const seen = localStorage.getItem("retration_first_notice");
+    if (!seen) {
+        showFirstNotice.value = true;
+    }
+    window.addEventListener("scroll", handleScroll);
+});
+
+onUnmounted(() => {
+    window.removeEventListener("scroll", handleScroll);
+});
+</script>
 <style lang="css" scoped>
 :deep(.v-app-bar) {
     transition: all 0.4s ease !important;

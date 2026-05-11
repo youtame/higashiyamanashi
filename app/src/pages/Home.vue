@@ -11,6 +11,7 @@
                     color="#3178c6"
                     class="code-style-btn px-10"
                     size="x-large"
+                    to="./start"
                 >
                     <span class="btn-text font-weight-bold">run_quiz.sh</span>
                     <v-icon
@@ -411,7 +412,7 @@ const formatDate = (dateStr: string) => {
 
 .notice-section {
     max-width: 1200px;
-    margin: 60px auto 30px;
+    margin: 60px auto 60px;
 }
 
 .notice-item {
