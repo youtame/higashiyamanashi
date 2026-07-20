@@ -5,7 +5,7 @@
 [Please visit my website here!!!](https://lozdo.com/himagin)
 
 > **"Spot the bugs, sharpen your mind."**  
-> Himagin.env is a professional playground for idle coders to hunt bugs, solve puzzles, and compete with developers worldwide.
+> Himagin.env is a professional playground for idle coders to hunt bugs, solve puzzles, and compete with developers worldwide. Easy to use it.
 
 <p style="display: inline">
     <a href="https://www.docker.com/" target="_blank"><img src="https://img.shields.io/badge/-Docker-1488C6.svg?logo=docker&style=for-the-badge"></a>
